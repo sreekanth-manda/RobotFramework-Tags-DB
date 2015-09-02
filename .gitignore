@@ -1,0 +1,7 @@
+.Python
+tags_db_env
+bin
+lib
+include
+.DS_Store
+.pyc
