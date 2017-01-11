@@ -1,0 +1,22 @@
+{% extends "home.html" %}
+
+{% block tagtype %}
+    {% for tag_type in tag_types_list %}
+        <option>{{ tag_type }}</option>
+    {% endfor %}
+{% endblock tagtype %}
+
+{% block alphabet-heading %}
+    <hr>
+    <span class="label label-warning pull-left" style="font-size: 15px";>Total Tags
+    <span class="badge" style="font-size: 12px";>{{ tag_list|length }}</span></span>
+
+    <a class="btn btn-primary btn-md pull-right" href="/select_tag_with_{{ starts_with }}">Run Tests</a>
+    <a class="btn btn-info btn-md pull-right" href="/get_tag_{{ starts_with }}">Update Tags</a>
+{% endblock alphabet-heading %}
+
+{% block alphabet %}
+    {% for tag in tag_list %}
+         <a href="/get_tag_{{ tag.TagName }}"><code>{{ tag.TagName }}</code></a>&nbsp;&nbsp;
+    {% endfor %}
+{% endblock alphabet %}

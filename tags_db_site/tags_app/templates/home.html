@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block app-heading %}Tags {% endblock %}
+{% block app-info %}This Dashboard shows information abin tags in SARF {% endblock %}
+
+{% block app-data %}
+<div class="container col-xs-11 text-left">
+    <div id="tag-listing" class="panel-group col-xs-11">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordian" data-target="#tlist">Tag Listing
+                    <span class="glyphicon glyphicon-chevron-down col-xs-1 pull-right"></span></a>
+                </h2>
+            </div>
+            <div id="tlist" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="container col-xs-3 pull-left">
+                        <label for="selectTagType" class="pull-left">
+                            <p class="text-info">Select a Tag Type</p>
+                        </label>
+                        <select class="form-control" id="selectTagType">
+                            {% block tagtype %}
+                                {% for tag_type in tag_types_list %}
+                                    <option>{{ tag_type }}</option>
+                                {% endfor %}
+                            {% endblock tagtype %}
+                        </select>
+                        <br>
+                    </div>
+                    <div class="container col-xs-12 pull-left">
+                        <p class="text-info">Select an alphabet to show corresponding tags</p>
+                        <ul class="pagination pagination-sm">
+                            <li class="active"><a href="/all">All</a></li>
+                            <li><a href="/a">A</a></li>
+                            <li><a href="/b">B</a></li>
+                            <li><a href="/c">C</a></li>
+                            <li><a href="/d">D</a></li>
+                            <li><a href="/e">E</a></li>
+                            <li><a href="/f">F</a></li>
+                            <li><a href="/g">G</a></li>
+                            <li><a href="/h">H</a></li>
+                            <li><a href="/i">I</a></li>
+                            <li><a href="/j">J</a></li>
+                            <li><a href="/k">K</a></li>
+                            <li><a href="/l">L</a></li>
+                            <li><a href="/m">M</a></li>
+                            <li><a href="/n">N</a></li>
+                            <li><a href="/o">O</a></li>
+                            <li><a href="/p">P</a></li>
+                            <li><a href="/q">Q</a></li>
+                            <li><a href="/r">R</a></li>
+                            <li><a href="/s">S</a></li>
+                            <li><a href="/t">T</a></li>
+                            <li><a href="/u">U</a></li>
+                            <li><a href="/v">V</a></li>
+                            <li><a href="/w">W</a></li>
+                            <li><a href="/x">X</a></li>
+                            <li><a href="/y">Y</a></li>
+                            <li><a href="/z">Z</a></li>
+                        </ul>
+                    </div>
+                    <div class="container col-xs-12 pull-left">
+                        {% block alphabet-heading %}{% endblock alphabet-heading %}
+                    </div>
+                    <div class="container col-xs-12 pull-left">
+                        <br>
+                        {% block alphabet %}{% endblock alphabet %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tag-graphs" class="panel-group col-xs-11">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordian" data-target="#tgraphs">Tag Graphs
+                    <span class="glyphicon glyphicon-chevron-down col-xs-1 pull-right"></span></a>
+                </h2>
+            </div>
+            <div id="tgraphs" class="panel-collapse collapse out">
+                <div class="panel-body">
+                    Shows some graphs here
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tag-stats" class="panel-group col-xs-11">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordian" data-target="#tstats">Tag Stats
+                    <span class="glyphicon glyphicon-chevron-down col-xs-1 pull-right"></span></a>
+                </h2>
+            </div>
+            <div id="tstats" class="panel-collapse collapse out">
+                <div class="panel-body">
+                    Shows some stats here
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container col-xs-1 text-right">
+    <div class="input-group-btn">
+        <button type="button"
+                class="btn btn-success dropdown-toggle"
+                data-toggle="dropdown">Options <span class="caret"></span></button>
+        <ul class="dropdown-menu pull-right">
+            <li><a href="#">Populate Tags</a></li>
+            <li><a href="#">Rename Tags</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock app-data %}

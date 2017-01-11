@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+
+{% block app-data %}
+<div class="container col-xs-11 text-left">
+    <div class="container">
+        <p class="pull-right"><a class="btn btn-info btn-sm" href="/update_tags">Update Tags</a>
+        <a class="btn btn-primary btn-sm" href="/home">Back</a></p>
+    </div>
+    <br>
+    <table class="table table-hover table-hover">
+        <thead>
+        <tr>
+           <th></th>
+           <th>Tag ID</th>
+           <th>Tag Name</th>
+           <th>Tag Tag Description</th>
+           <th>Tag Created Time</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for tag in tags %}
+            <tr>
+                <td><input type="checkbox" id="{{ tag.TagName }}"></td>
+                <td>{{ tag.TagID }}</td>
+                <td>{{ tag.TagName }}</td>
+                <td>{{ tag.TagDescription }}</td>
+                <td>{{ tag.TagCreatedTime }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

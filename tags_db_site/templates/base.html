@@ -1,0 +1,209 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>WSA Automation Dashboard</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <!-- Project specific CSS -->
+        <style>
+            body {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                font-family: 'calibri';
+                font-size: 15px;
+            }
+            .uline {
+                display:inline-block;
+                border-bottom:1px solid white;
+                padding-bottom:2px;
+            }
+            .img_apps {
+                width:50px;
+                height:50px;
+                align:left;
+            }
+            .container .jumbotron {
+                padding-top: 0px;
+                padding-left: 5px;
+            }
+            .alert {
+                display:inline-block;
+            }
+            .pagination {
+                padding-left: 1px;
+            }
+            .btn {
+                margin: 2px;
+            }
+            .well {
+                padding: 7px;
+            }
+        </style>
+        <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <script src="/static/js/accordian.js"></script>
+        <script src="/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Navbar start -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="/home_page"><span class="uline">Home</span></a>
+            <a class="navbar-brand" href="#">Genesis DB</a>
+            <a class="navbar-brand" href="#">About us</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="Username" required />
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required />
+              <button type="submit" class="btn btn-primary">Sign in</button>
+              <a class="btn btn-link btn-md" href="#" role="button"><strong>Sign Up</strong></a>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Main section about the site description ends here -->
+    <div class="jumbotron">
+      <div class="container">
+        <h2>{% block app-heading %}Automation {% endblock %}Dashboard</h2>
+        <p>{% block app-info %}Some sample information is shown here{% endblock %}</p>
+        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#LearnMoreModal">Learn more</a>
+        <!-- Modal for Learn more button-->
+        <div class="modal fade" id="LearnMoreModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 style="color:red;" class="modal-title">
+                      {% block learnmoretitle %}Automation Dashboard{% endblock %}
+                  </h4>
+                </div>
+                <div class="modal-body">
+                  <p>{% block learnmoreconent %}WSA Automation Dashboard information on what data we collect and show here.{% endblock %}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>  <!-- Modal End -->
+      </div>  <!-- Container End -->
+    </div>  <!-- Jumbotron End -->
+    <!-- Main section about the site description ends here -->
+
+    <!-- Main app content start here -->
+    <div class="container">
+      <div class="row">
+        {% block app-data %}
+        <div class="col-xs-4">
+          <h2><img class="img_apps" src="/static/img/reporting.jpg">  Reporting</h2>
+          <p>A Reporting Dashboard which will show information on test data </p>
+            <br><p><a class="btn btn-link btn-md" href="/reporting" role="button">Show me &raquo;</a></p>
+        </div>
+        <div class="col-xs-4">
+          <h2><img class="img_apps" src="/static/img/tagging.jpg">  Tagging</h2>
+          <p>A Tagging dashboard which will show information on robot-framework tags</p>
+            <br><p><a class="btn btn-link btn-md" href="/tagging" role="button">Show me &raquo;</a></p>
+        </div>
+        <div class="col-xs-4">
+          <h2><img class="img_apps" src="/static/img/jenkins.jpg">  Jenkins</h2>
+          <p>A Jenkins dashboard which will show information on jenkin's jobs</p>
+            <br><p><a class="btn btn-link btn-md" href="/jenkins" role="button">Show me &raquo;</a></p>
+        </div>
+        {% endblock %}
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Site footer and copyright info
+    <div class="footer navbar-fixed-bottom">
+        <div class="container">
+            <hr class="col-xs-12">
+            <p class="col-xs-8 pull-left">"By WSA Automation Team"</p>
+            <p class="col-xs-2 pull-right">&copy; Cisco Systems 2015</p>
+        </div>
+    </div>
+    Site footer and copyright info -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <script src="/static/js/plugins.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        $('#test').click(function () {
+        var checked = this.checked;
+        console.log(checked);
+        $('.prueba').each(function () {
+        $(this).prop('disabled', !checked);
+        });
+    </script>
+    <script>
+        $(document).ready(AddTagsToPanel);
+        function AddTagsToPanel(){
+            var $noTags = "<span id=\"NoTags\">No Tags Selected</span>\n"
+            $("#selectedTagsPanel").find('.panel-body').append($noTags);
+            $('.selectTagsChkBox').click(function(event){
+                var $id = event.target.id;
+                var $tag = "<p><span class=\"label label-default\"" +
+                            "style=\"font-size: 14px\"; id=\"" + $id + "-tag" +
+                            "\">" + $id + "  <span class=\"glyphicon glyphicon-remove\" id=\"glyphiconRemove\"" +
+                            " style=\"font-size: 10px\";>" + "</span></span></div></p>"
+                if($(this).prop("checked") == true){
+
+                    $("#NoTags").remove();
+                    $("#selectedTagsPanel").find('.panel-body').append($tag);
+                }
+                else if($(this).prop("checked") == false){
+                    $("span").remove("#" + $id + "-tag");
+                    if (( $("#selectedTagsPanelBody span").children().length ) == 0) {
+                        var $noTags = "<span id=\"NoTags\">No Tags Selected</span>\n"
+                        $("#selectedTagsPanel").find('.panel-body').append($noTags);
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(ShowPybotCmd);
+        function ShowPybotCmd(){
+            $('#showPybotCmd').click(function(event){
+                var $selectedRelease = $("#selectRelease option:selected").text();
+                var $pybotCmd = "pybot  --dut=<wsa-hostname>  $SARF_HOME/tests/" + $selectedRelease
+                $("#pybotCmd").show();
+                $("#pybotCmd").text($pybotCmd);
+            });
+        }
+    </script>
+    </body>
+</html>

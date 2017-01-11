@@ -1,0 +1,88 @@
+{% extends "home.html" %}
+
+{% block app-data %}
+<div class="container">
+    <div class="container col-xs-9 pull-left">
+        <table class="table table-condensed table-hover table-striped">
+            <thead>
+            <tr>
+               <th>Tag</th>
+               <th>Condition</th>
+               <th>State</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for tag in tag_list %}
+                <tr>
+                    <td>
+                        <label class="checkbox-inline">
+                            <input class="selectTagsChkBox" type="checkbox" id="{{tag.TagName}}" />
+                            <span class="label label-primary" style='font-size: 14px';>{{ tag.TagName }}</span>
+                        </label>
+                    </td>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" checked="checked" value="and" data-toggle="button" />AND
+                        </label>
+                        <label>
+                            <span> | </span>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="or" data-toggle="button" />OR
+                        </label>
+                    </td>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" checked="checked" value="include" data-toggle="button" />Include
+                        </label>
+                        <label>
+                            <span> | </span>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="exclude" data-toggle="button" />Exclude
+                        </label>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container col-xs-2 pull-right">
+        <br>
+        <label for="selectRelease" class="pull-right">
+            <strong>Release</strong>
+        </label>
+        <select class="form-control" id="selectRelease">
+          {% for release in release_list %}
+              <option>{{ release.ReleaseTag }}</option>
+          {% endfor %}
+        </select>
+    </div>
+    <div class="container col-xs-3 pull-right">
+        <br><br>
+        <div id="selectedTagsPanel" class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" data-target="#tgraphs">Selected Tags</a>
+                    </h2>
+                </div>
+                <div class="panel-collapse collapse in">
+                    <div id="selectedTagsPanelBody" class="panel-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container col-xs-12 text-left">
+        <br>
+        <div id="pybotCmd" class="well well-sm" style="display:none;"></div>
+    </div>
+    <div class="container col-xs-12 text-right">
+        <br>
+        <a class="btn btn-success btn-md" href="/home">Run SARF Tests</a>
+        <a class="btn btn-success btn-md" id="showPybotCmd">Pybot Command</a>
+        <a class="btn btn-primary btn-md" href="/{{ starts_with }}">Back</a>
+    </div>
+
+</div>
+{% endblock %}
